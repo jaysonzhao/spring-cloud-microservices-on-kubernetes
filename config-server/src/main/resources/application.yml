@@ -44,7 +44,8 @@ eureka:
       enabled: true
     serviceUrl:
       # Production Environment: Kubernetes deployment
-      defaultZone: http://eureka-0.discovery.default.svc.cluster.local:8761/eureka/,http://eureka-1.discovery.default.svc.cluster.local:8761/eureka/
+      defaultZone: http://discovery-eureka-server:8761/eureka/
+      #,http://eureka-1.discovery.default.svc.cluster.local:8761/eureka/
       #> Just for local deployment testing.
       #defaultZone: http://master1.k8s.kyletiger.com:38761/eureka/,http://node1.k8s.kyletiger.com:38762/eureka/
   instance:
