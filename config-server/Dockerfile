@@ -2,7 +2,7 @@
 #MAINTAINER Albert Zheng <lisong.zheng@gmail.com>
 # Build stage
 FROM maven:3.6.0-jdk-11-slim AS build
-COPY * /app/*
+COPY pom.xml /app/pom.xml
 RUN mvn -f /app/pom.xml clean package
 RUN mvn -f /app/config-server/pom.xml clean package
 
