@@ -22,7 +22,14 @@
 
   <build>
     <plugins>
-      <!-- Notice: Using this plugin https://github.com/spotify/dockerfile-maven for dockerizing. -->
+      
+    
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+
+      <!-- Notice: Using this plugin https://github.com/spotify/dockerfile-maven for dockerizing. 
       <plugin>
         <groupId>com.spotify</groupId>
         <artifactId>dockerfile-maven-plugin</artifactId>
@@ -36,12 +43,12 @@
             </goals>
           </execution>
         </executions>
-        <configuration>
-          <!-- Notice for macOS: You need to remove "index." from the URL of index.docker.io in ~/.docker/config.json, otherwise the pushing will be denied !-->
+        <configuration> -->
+          <!-- Notice for macOS: You need to remove "index." from the URL of index.docker.io in ~/.docker/config.json, otherwise the pushing will be denied !
           <repository>albertzheng/${project.artifactId}</repository>
           <tag>${project.version}</tag>
         </configuration>
-      </plugin>
+      </plugin>  -->
     </plugins>
   </build>
 
