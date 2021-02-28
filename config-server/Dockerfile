@@ -5,6 +5,8 @@ MAINTAINER Albert Zheng <lisong.zheng@gmail.com>
 VOLUME /tmp
 
 ENV APP_ARTIFACT_PACKAGE="*.jar"
+ADD * /
+RUN sh -c 'mvn clean package'
 ADD target/$APP_ARTIFACT_PACKAGE /
 RUN rm -r -f *-docker-info.jar
 RUN sh -c 'touch /$APP_ARTIFACT_PACKAGE'
