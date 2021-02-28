@@ -15,14 +15,15 @@
   <name>Spring Cloud Microservices on Kubernetes - Root</name>
 
   <modules>
-	<module>discovery-eureka</module>
+	
     <module>config-server</module>
+   <!-- <module>discovery-eureka</module>
     <module>apigateway-zuul</module>
     <module>hystrix-dashboard</module>
     <module>hystrix-turbine</module>
     <module>spring-boot-admin</module>
     <module>employee-ms</module>
-    <module>department-ms</module>
+    <module>department-ms</module>-->
   </modules>
 
   <properties>
