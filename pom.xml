@@ -17,8 +17,8 @@
   <modules>
 	
     <module>config-server</module>
-   <!-- <module>discovery-eureka</module>
-    <module>apigateway-zuul</module>
+    <module>discovery-eureka</module>
+   <!--  <module>apigateway-zuul</module>
     <module>hystrix-dashboard</module>
     <module>hystrix-turbine</module>
     <module>spring-boot-admin</module>
