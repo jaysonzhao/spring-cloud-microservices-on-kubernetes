@@ -13,7 +13,7 @@ FROM openjdk:8u181-jdk-alpine
 VOLUME /tmp
 
 ENV APP_ARTIFACT_PACKAGE="*.jar"
-COPY --from=build /app/target/*.jar /*.jar
+COPY --from=build /app/config-server/target/*.jar /*.jar
 #ADD target/$APP_ARTIFACT_PACKAGE /
 RUN rm -r -f *-docker-info.jar
 RUN sh -c 'touch /$APP_ARTIFACT_PACKAGE'
