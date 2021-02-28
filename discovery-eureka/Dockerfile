@@ -1,11 +1,21 @@
+#MAINTAINER Albert Zheng <lisong.zheng@gmail.com>
+# Build stage
+FROM maven:3.6.0-jdk-11-slim AS build
+COPY pom.xml /app/pom.xml
+ADD config-server /app/config-server
+ADD discovery-eureka /app/discovery-eureka
+RUN mvn -f /app/pom.xml clean package
+RUN mvn -f /app/discovery-eureka/pom.xml clean package
+
 FROM openjdk:8u181-jdk-alpine
-MAINTAINER Albert Zheng <lisong.zheng@gmail.com>
+#MAINTAINER Albert Zheng <lisong.zheng@gmail.com>
 
 # We added a VOLUME pointing to "/tmp" because that is where a Spring Boot application creates working directories for Tomcat by default. The effect is to create a temporary file on your host under "/var/lib/docker" and link it to the container under "/tmp".
 VOLUME /tmp
 
 ENV APP_ARTIFACT_PACKAGE="*.jar"
-ADD target/$APP_ARTIFACT_PACKAGE /
+COPY --from=build /app/discovery-eureka/target/*.jar /*.jar
+#ADD target/$APP_ARTIFACT_PACKAGE /
 RUN rm -r -f *-docker-info.jar
 RUN sh -c 'touch /$APP_ARTIFACT_PACKAGE'
 
