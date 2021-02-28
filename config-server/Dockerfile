@@ -3,6 +3,7 @@
 # Build stage
 FROM maven:3.6.0-jdk-11-slim AS build
 COPY pom.xml /app/pom.xml
+ADD config-server /config-server
 RUN mvn -f /app/pom.xml clean package
 RUN mvn -f /app/config-server/pom.xml clean package
 
