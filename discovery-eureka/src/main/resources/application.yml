@@ -16,8 +16,7 @@ eureka:
     serviceUrl:
       defaultZone: http://eureka-0:${server.port}/eureka/,http://eureka-1:${server.port}/eureka/
       #,http://eureka-1.discovery.default.svc.cluster.local:${server.port}/eureka/
-    register-with-eureka: true
-    fetch-registry: true
+    
   server:
     # 当网络出现不稳定时，记得需要配置为false禁用Eureka Server的"自我保护模式".
     enable-self-preservation: true
